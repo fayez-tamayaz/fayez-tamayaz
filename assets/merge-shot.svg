@@ -1,322 +1,347 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560" role="img" aria-labelledby="title description">
-  <title id="title">From issue to merged pull request</title>
-  <desc id="description">A wordless basketball animation where an issue-ball is shot through a hoop, becomes a pull request, and lands as a merged pull request.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="520" viewBox="0 0 1000 520" role="img" aria-labelledby="title description">
+  <title id="title">Pick an issue. Shoot a pull request. Merge it.</title>
+  <desc id="description">A wordless loop in which a player selects an issue-ball from a rack, picks it up, shoots it, turns it into a pull-request ball in flight, and earns a purple merged ball after the swish.</desc>
 
   <style>
-    .field { fill: #087a51; }
-    .field-deep { fill: #075f42; }
-    .court-line { fill: none; stroke: #c9f7dd; }
-    .light-fill { fill: #f3f6ea; }
-    .light-stroke { fill: none; stroke: #f3f6ea; }
-    .ball-fill { fill: #42dc8b; }
-    .ball-line { fill: none; stroke: #064c37; }
-    .issue-fill { fill: #064c37; }
-    .pr-card { fill: #c9f7dd; }
-    .pr-line { fill: none; stroke: #075f42; }
-    .merge-fill { fill: #8250df; }
-    .merge-line { fill: none; stroke: #ffffff; }
+    .ms-bg { fill: #06120e; }
+    .ms-floor { fill: #091b15; }
+    .ms-court { fill: none; stroke: #2f7658; }
+    .ms-cream-fill { fill: #eef8f1; }
+    .ms-cream-stroke { fill: none; stroke: #eef8f1; }
+    .ms-green-fill { fill: #2ddc8c; }
+    .ms-green-stroke { fill: none; stroke: #2ddc8c; }
+    .ms-orange-fill { fill: #f59e48; }
+    .ms-orange-stroke { fill: none; stroke: #7a3e16; }
+    .ms-purple-fill { fill: #a371f7; }
+    .ms-dark-fill { fill: #071812; }
+    .ms-dark-stroke { fill: none; stroke: #071812; }
+    .ms-reduced-story { opacity: 1; animation: ms-hide-static 8s step-end infinite; }
+    .ms-animated-token { opacity: 0; animation: ms-show-animated 8s step-start infinite; }
 
-    .shooter {
-      transform-box: fill-box;
-      transform-origin: 50% 100%;
-      animation: shooter 6.4s ease-in-out infinite;
+    .ms-rack-ball { opacity: .62; animation: ms-rack-dim 8s ease-in-out infinite; }
+    .ms-player-motion { transform-origin: 0 0; animation: ms-player-motion 8s ease-in-out infinite; }
+    .ms-pose-idle { animation: ms-pose-idle 8s linear infinite; }
+    .ms-pose-pick { opacity: 0; animation: ms-pose-pick 8s linear infinite; }
+    .ms-pose-carry { opacity: 0; animation: ms-pose-carry 8s linear infinite; }
+    .ms-pose-set { opacity: 0; animation: ms-pose-set 8s linear infinite; }
+    .ms-pose-shot { opacity: 0; animation: ms-pose-shot 8s linear infinite; }
+    .ms-shot-trail { stroke-dasharray: 1; stroke-dashoffset: 1; animation: ms-shot-trail 8s linear infinite; }
+    .ms-token-position { transform: translate(170px, 365px); animation: ms-token-position 8s linear infinite; }
+    .ms-token-squash { transform-origin: 0 0; animation: ms-token-squash 8s ease-in-out infinite; }
+    .ms-token-shell { animation: ms-token-color 8s linear infinite; }
+    .ms-token-outline { animation: ms-token-outline 8s linear infinite; }
+    .ms-ball-seams { transform-origin: 0 0; animation: ms-ball-seams 8s linear infinite; }
+    .ms-issue-state { transform-origin: 0 0; animation: ms-issue-state 8s ease-in-out infinite; }
+    .ms-pr-state { opacity: 0; transform-origin: 0 0; animation: ms-pr-state 8s ease-in-out infinite; }
+    .ms-pr-path { stroke-dasharray: 1; stroke-dashoffset: 1; animation: ms-pr-path 8s ease-in-out infinite; }
+    .ms-pr-node { transform-box: fill-box; transform-origin: center; animation: ms-pr-node 8s ease-in-out infinite; }
+    .ms-merge-wipe { opacity: 0; transform: translateY(-84px); animation: ms-merge-wipe 8s ease-in-out infinite; }
+    .ms-merge-state { opacity: 0; transform-origin: 0 0; animation: ms-merge-state 8s ease-in-out infinite; }
+    .ms-select-orbit { transform-origin: 0 0; animation: ms-select-orbit 8s ease-in-out infinite; }
+    .ms-merge-halo { opacity: 0; transform-origin: 0 0; animation: ms-merge-halo 8s ease-out infinite; }
+    .ms-back-net, .ms-front-net { transform-origin: 950px 236px; animation: ms-net-swish 8s ease-in-out infinite; }
+    .ms-rim-front { transform-origin: 994px 236px; animation: ms-rim-response 8s ease-in-out infinite; }
+    .ms-rim-glow { opacity: 0; animation: ms-rim-glow 8s ease-out infinite; }
+
+    @keyframes ms-hide-static { from, to { opacity: 0; } }
+    @keyframes ms-show-animated { from, to { opacity: 1; } }
+
+    @keyframes ms-rack-dim {
+      0%, 7%, 96%, 100% { opacity: .62; }
+      13%, 91% { opacity: .3; }
+    }
+    @keyframes ms-player-motion {
+      0%, 6%, 23%, 27%, 45%, 100% { transform: translate(0, 0) rotate(0deg); }
+      11% { transform: translate(-10px, 8px) rotate(-3deg); }
+      17% { transform: translate(-4px, 3px) rotate(-1deg); }
+      29% { transform: translate(0, 8px) rotate(1deg); }
+      34% { transform: translate(3px, -15px) rotate(-2deg); }
+      39% { transform: translate(2px, -5px) rotate(-1deg); }
+    }
+    @keyframes ms-pose-idle {
+      0%, 7%, 64%, 100% { opacity: 1; }
+      8%, 59% { opacity: 0; }
+    }
+    @keyframes ms-pose-pick {
+      0%, 7%, 16%, 100% { opacity: 0; }
+      8%, 15% { opacity: 1; }
+    }
+    @keyframes ms-pose-carry {
+      0%, 14%, 23%, 100% { opacity: 0; }
+      15%, 22% { opacity: 1; }
+    }
+    @keyframes ms-pose-set {
+      0%, 21%, 34%, 100% { opacity: 0; }
+      22%, 33% { opacity: 1; }
+    }
+    @keyframes ms-pose-shot {
+      0%, 32%, 60%, 100% { opacity: 0; }
+      33%, 59% { opacity: 1; }
+    }
+    @keyframes ms-shot-trail {
+      0%, 31% { opacity: 0; stroke-dashoffset: 1; }
+      35% { opacity: .2; stroke-dashoffset: .92; }
+      63% { opacity: .8; stroke-dashoffset: 0; }
+      69%, 100% { opacity: 0; stroke-dashoffset: 0; }
+    }
+    @keyframes ms-token-position {
+      0%, 7% { transform: translate(170px, 365px); }
+      10% { transform: translate(170px, 357px); }
+      12% { transform: translate(170px, 357px); }
+      14% { transform: translate(190px, 349px); }
+      16% { transform: translate(260px, 306px); }
+      19%, 21% { transform: translate(275px, 302px); }
+      22% { transform: translate(315px, 240px); }
+      23%, 28% { transform: translate(350px, 190px); }
+      30% { transform: translate(353px, 196px); }
+      33% { transform: translate(440px, 160px); }
+      38% { transform: translate(525px, 91px); }
+      44% { transform: translate(615px, 68px); }
+      49% { transform: translate(678px, 78px); }
+      55% { transform: translate(735px, 119px); }
+      62% { transform: translate(785px, 207px); }
+      65% { transform: translate(800px, 237px); }
+      68% { transform: translate(800px, 292px); }
+      71% { transform: translate(800px, 345px); }
+      72% { transform: translate(800px, 365px); }
+      76% { transform: translate(800px, 402px); }
+      80% { transform: translate(828px, 376px); }
+      84%, 90% { transform: translate(800px, 405px); }
+      92% { transform: translate(900px, 416px); }
+      94% { transform: translate(970px, 478px); }
+      95% { transform: translate(970px, 500px); }
+      96% { transform: translate(170px, 500px); }
+      98% { transform: translate(170px, 425px); }
+      100% { transform: translate(170px, 365px); }
+    }
+    @keyframes ms-token-squash {
+      0%, 27%, 33%, 71%, 100% { transform: scale(1); }
+      29% { transform: scale(1.13, .87); }
+      76% { transform: scale(1.34); }
+      77% { transform: scale(1.22, .82); }
+      80% { transform: scale(.98, 1.18); }
+      84%, 92% { transform: scale(1.12); }
+      94%, 98% { transform: scale(1); }
+    }
+    @keyframes ms-token-color {
+      0%, 43% { fill: #f59e48; }
+      49%, 96% { fill: #2ddc8c; }
+      97%, 100% { fill: #f59e48; }
+    }
+    @keyframes ms-token-outline {
+      0%, 43% { stroke: #f8c991; }
+      49%, 70% { stroke: #9af4c3; }
+      75%, 96% { stroke: #cebdf6; }
+      97%, 100% { stroke: #f8c991; }
+    }
+    @keyframes ms-ball-seams {
+      0%, 8% { opacity: 1; transform: rotate(0deg); }
+      42% { opacity: 1; transform: rotate(630deg); }
+      49%, 96% { opacity: 0; transform: rotate(720deg); }
+      97% { opacity: 0; transform: rotate(0deg); }
+      100% { opacity: 1; transform: rotate(0deg); }
+    }
+    @keyframes ms-issue-state {
+      0%, 42% { opacity: 1; transform: scale(1); }
+      47%, 96% { opacity: 0; transform: scale(.25); }
+      97% { opacity: 0; transform: scale(.25); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+    @keyframes ms-pr-state {
+      0%, 42% { opacity: 0; transform: scale(.35) rotate(-24deg); }
+      48% { opacity: 1; transform: scale(1.08) rotate(2deg); }
+      51%, 72% { opacity: 1; transform: scale(1) rotate(0deg); }
+      77%, 100% { opacity: 0; transform: scale(.58) rotate(12deg); }
+    }
+    @keyframes ms-pr-path {
+      0%, 42% { stroke-dashoffset: 1; }
+      49%, 100% { stroke-dashoffset: 0; }
+    }
+    @keyframes ms-pr-node {
+      0%, 43% { transform: scale(0); }
+      49%, 100% { transform: scale(1); }
+    }
+    @keyframes ms-merge-wipe {
+      0%, 71% { opacity: 0; transform: translateY(-84px); }
+      72% { opacity: 1; transform: translateY(-84px); }
+      77%, 95% { opacity: 1; transform: translateY(0); }
+      96%, 100% { opacity: 0; transform: translateY(0); }
+    }
+    @keyframes ms-merge-state {
+      0%, 72% { opacity: 0; transform: scale(.42) rotate(-12deg); }
+      77% { opacity: 1; transform: scale(1.14) rotate(3deg); }
+      80%, 95% { opacity: 1; transform: scale(1) rotate(0deg); }
+      96%, 100% { opacity: 0; transform: scale(.65) rotate(9deg); }
+    }
+    @keyframes ms-select-orbit {
+      0% { opacity: .15; transform: scale(.86) rotate(0deg); }
+      7% { opacity: 1; transform: scale(1.08) rotate(45deg); }
+      15% { opacity: .7; transform: scale(.92) rotate(120deg); }
+      21%, 100% { opacity: 0; transform: scale(.55) rotate(180deg); }
+    }
+    @keyframes ms-merge-halo {
+      0%, 75% { opacity: 0; transform: scale(.7); }
+      78% { opacity: .75; transform: scale(.92); }
+      89%, 100% { opacity: 0; transform: scale(1.85); }
+    }
+    @keyframes ms-net-swish {
+      0%, 63%, 74%, 100% { transform: scaleY(1) skewX(0deg); }
+      67% { transform: scaleY(1.25) skewX(-3deg); }
+      71% { transform: scaleY(.94) skewX(2deg); }
+    }
+    @keyframes ms-rim-response {
+      0%, 63%, 71%, 100% { transform: rotate(0deg); }
+      66% { transform: rotate(2.5deg); }
+      68% { transform: rotate(-1.5deg); }
+    }
+    @keyframes ms-rim-glow {
+      0%, 63%, 100% { opacity: 0; }
+      67% { opacity: .8; }
+      74% { opacity: 0; }
     }
 
-    .shooting-arm {
-      transform-box: fill-box;
-      transform-origin: 0% 75%;
-      animation: release 6.4s ease-in-out infinite;
+    @media (prefers-color-scheme: light) {
+      .ms-bg { fill: #0a2118; }
+      .ms-floor { fill: #0d2a20; }
+      .ms-court { stroke: #4b9a75; }
     }
-
-    .shot-trail {
-      stroke-dasharray: 0 1;
-      animation: trail 6.4s linear infinite;
-    }
-
-    .ball-flight {
-      transform: translate(274px, 300px);
-      animation: ball-flight 6.4s linear infinite;
-    }
-
-    .ball-spin {
-      transform-origin: 0 0;
-      animation: ball-spin 6.4s linear infinite;
-    }
-
-    .speed-line {
-      animation: speed-line 6.4s linear infinite;
-    }
-
-    .rim {
-      transform-box: fill-box;
-      transform-origin: 100% 50%;
-      animation: rim-hit 6.4s ease-in-out infinite;
-    }
-
-    .net {
-      transform-box: fill-box;
-      transform-origin: 50% 0%;
-      animation: net-swish 6.4s ease-in-out infinite;
-    }
-
-    .pr-flight {
-      animation: pr-flight 6.4s ease-in-out infinite;
-    }
-
-    .pr-signal {
-      animation: pr-signal 6.4s ease-in-out infinite;
-    }
-
-    .merge-pop {
-      transform-origin: 0 0;
-      animation: merge-pop 6.4s ease-in-out infinite;
-    }
-
-    .merge-halo {
-      transform-origin: 0 0;
-      animation: merge-halo 6.4s ease-out infinite;
-    }
-
-    .particle-a { animation: particle-a 6.4s ease-out infinite; }
-    .particle-b { animation: particle-b 6.4s ease-out infinite; }
-    .particle-c { animation: particle-c 6.4s ease-out infinite; }
-    .particle-d { animation: particle-d 6.4s ease-out infinite; }
-
-    @keyframes shooter {
-      0%, 8%, 24%, 100% { transform: translateY(0) rotate(0deg); }
-      11% { transform: translateY(4px) rotate(1deg); }
-      16% { transform: translateY(-13px) rotate(-2deg); }
-      20% { transform: translateY(-5px) rotate(-1deg); }
-    }
-
-    @keyframes release {
-      0%, 9%, 100% { transform: rotate(0deg); }
-      16%, 24% { transform: rotate(-12deg); }
-      30% { transform: rotate(0deg); }
-    }
-
-    @keyframes trail {
-      0%, 10% { opacity: 0; stroke-dasharray: 0 1; }
-      15% { opacity: .55; stroke-dasharray: .08 1; }
-      52% { opacity: .7; stroke-dasharray: .98 1; }
-      59%, 100% { opacity: 0; stroke-dasharray: 1 1; }
-    }
-
-    @keyframes ball-flight {
-      0%, 9% { opacity: 1; transform: translate(274px, 300px) scale(1); }
-      11% { opacity: 1; transform: translate(276px, 303px) scale(1.13, .87); }
-      15% { opacity: 1; transform: translate(330px, 224px) scale(1); }
-      25% { opacity: 1; transform: translate(470px, 116px) scale(1); }
-      35% { opacity: 1; transform: translate(640px, 78px) scale(1); }
-      44% { opacity: 1; transform: translate(790px, 116px) scale(1); }
-      52% { opacity: 1; transform: translate(930px, 225px) scale(1); }
-      56% { opacity: 1; transform: translate(956px, 283px) scale(.88, 1.12); }
-      58%, 96% { opacity: 0; transform: translate(956px, 300px) scale(.8, 1.2); }
-      97% { opacity: 0; transform: translate(274px, 300px) scale(.8); }
-      100% { opacity: 1; transform: translate(274px, 300px) scale(1); }
-    }
-
-    @keyframes ball-spin {
-      0%, 9% { transform: rotate(0deg); }
-      56%, 100% { transform: rotate(1080deg); }
-    }
-
-    @keyframes speed-line {
-      0%, 15%, 100% { opacity: 0; transform: translateX(0); }
-      22% { opacity: .75; transform: translateX(0); }
-      48% { opacity: .2; transform: translateX(70px); }
-      55% { opacity: 0; transform: translateX(100px); }
-    }
-
-    @keyframes rim-hit {
-      0%, 50%, 61%, 100% { transform: rotate(0deg); }
-      54% { transform: rotate(3deg); }
-      57% { transform: rotate(-2deg); }
-    }
-
-    @keyframes net-swish {
-      0%, 50%, 64%, 100% { transform: scaleY(1) skewX(0deg); }
-      55% { transform: scaleY(1.22) skewX(-4deg); }
-      59% { transform: scaleY(.94) skewX(2deg); }
-    }
-
-    @keyframes pr-flight {
-      0%, 52% { opacity: 0; transform: translate(950px, 246px) scale(.35) rotate(-12deg); }
-      56% { opacity: 1; transform: translate(955px, 282px) scale(.82) rotate(-6deg); }
-      64% { opacity: 1; transform: translate(1054px, 362px) scale(1) rotate(0deg); }
-      69% { opacity: 1; transform: translate(1060px, 366px) scale(1) rotate(0deg); }
-      72%, 100% { opacity: 0; transform: translate(1060px, 366px) scale(.72) rotate(0deg); }
-    }
-
-    @keyframes pr-signal {
-      0%, 55%, 100% { opacity: 0; transform: translateY(-12px); }
-      60% { opacity: 1; transform: translateY(-5px); }
-      67% { opacity: 1; transform: translateY(11px); }
-      70% { opacity: 0; transform: translateY(14px); }
-    }
-
-    @keyframes merge-pop {
-      0%, 67% { opacity: 0; transform: scale(.45) rotate(-14deg); }
-      71% { opacity: 1; transform: scale(1.16) rotate(3deg); }
-      75% { opacity: 1; transform: scale(1) rotate(0deg); }
-      91% { opacity: 1; transform: scale(1) rotate(0deg); }
-      97%, 100% { opacity: 0; transform: scale(.72) rotate(8deg); }
-    }
-
-    @keyframes merge-halo {
-      0%, 70% { opacity: 0; transform: scale(.55); }
-      73% { opacity: .8; transform: scale(.85); }
-      84%, 100% { opacity: 0; transform: scale(1.75); }
-    }
-
-    @keyframes particle-a {
-      0%, 70% { opacity: 0; transform: translate(0, 0); }
-      74% { opacity: 1; }
-      84%, 100% { opacity: 0; transform: translate(-34px, -34px); }
-    }
-
-    @keyframes particle-b {
-      0%, 71% { opacity: 0; transform: translate(0, 0); }
-      75% { opacity: 1; }
-      85%, 100% { opacity: 0; transform: translate(38px, -24px); }
-    }
-
-    @keyframes particle-c {
-      0%, 70% { opacity: 0; transform: translate(0, 0); }
-      74% { opacity: 1; }
-      84%, 100% { opacity: 0; transform: translate(-31px, 30px); }
-    }
-
-    @keyframes particle-d {
-      0%, 72% { opacity: 0; transform: translate(0, 0); }
-      76% { opacity: 1; }
-      86%, 100% { opacity: 0; transform: translate(35px, 33px); }
-    }
-
-    @media (prefers-color-scheme: dark) {
-      .field { fill: #052f24; }
-      .field-deep { fill: #04251c; }
-      .court-line { stroke: #7ee2aa; }
-      .ball-fill { fill: #39d98a; }
-      .pr-card { fill: #9aebbd; }
-      .merge-fill { fill: #a371f7; }
-    }
-
     @media (prefers-reduced-motion: reduce) {
-      .shooter, .shooting-arm, .shot-trail, .ball-flight, .ball-spin,
-      .speed-line, .rim, .net, .pr-flight, .pr-signal, .merge-pop,
-      .merge-halo, .particle-a, .particle-b, .particle-c, .particle-d {
-        animation: none !important;
-      }
-
-      .ball-flight, .shot-trail, .speed-line, .pr-flight,
-      .merge-halo, .particle-a, .particle-b, .particle-c, .particle-d {
-        opacity: 0;
-      }
-
-      .merge-pop { opacity: 1; transform: scale(1); }
+      .ms-animated-token, .ms-shot-trail { display: none; animation: none !important; }
+      .ms-reduced-story { opacity: 1; animation: none !important; }
+      .ms-rack-ball, .ms-player-motion, .ms-pose-idle, .ms-pose-pick, .ms-pose-carry,
+      .ms-pose-set, .ms-pose-shot, .ms-back-net, .ms-front-net,
+      .ms-rim-front, .ms-rim-glow { animation: none !important; }
+      .ms-pose-idle { opacity: 1; }
+      .ms-pose-pick, .ms-pose-carry, .ms-pose-set, .ms-pose-shot { opacity: 0; }
+      .ms-rack-ball { opacity: .42; }
     }
   </style>
 
   <defs>
-    <filter id="soft-shadow" x="-30%" y="-30%" width="160%" height="160%">
-      <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#032f22" flood-opacity=".28"/>
-    </filter>
-    <linearGradient id="field-glow" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#20a872" stop-opacity=".4"/>
-      <stop offset="1" stop-color="#064c37" stop-opacity="0"/>
+    <linearGradient id="ms-background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0c2d21"/><stop offset=".48" stop-color="#071812"/><stop offset="1" stop-color="#030806"/>
     </linearGradient>
+    <radialGradient id="ms-spot-left" cx="0" cy="0" r="1" gradientTransform="translate(330 265) rotate(90) scale(270 340)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1f9f68" stop-opacity=".28"/><stop offset="1" stop-color="#1f9f68" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="ms-spot-rim" cx="0" cy="0" r="1" gradientTransform="translate(952 245) rotate(90) scale(210 260)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2ddc8c" stop-opacity=".2"/><stop offset="1" stop-color="#2ddc8c" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="ms-jersey" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#4aefa0"/><stop offset="1" stop-color="#168858"/>
+    </linearGradient>
+    <linearGradient id="ms-glass" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#dff9e9" stop-opacity=".18"/><stop offset="1" stop-color="#dff9e9" stop-opacity=".03"/>
+    </linearGradient>
+    <radialGradient id="ms-ball-shine" cx="0" cy="0" r="1" gradientTransform="translate(-13 -15) rotate(45) scale(50)">
+      <stop stop-color="#ffffff" stop-opacity=".4"/><stop offset=".55" stop-color="#ffffff" stop-opacity=".06"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="ms-dot-grid" width="18" height="18" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.2" fill="#79e8ac" opacity=".13"/></pattern>
+    <clipPath id="ms-token-clip"><circle r="40"/></clipPath>
+    <filter id="ms-glow" x="-70%" y="-70%" width="240%" height="240%">
+      <feGaussianBlur stdDeviation="7" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="ms-shadow" x="-70%" y="-70%" width="240%" height="260%"><feDropShadow dx="0" dy="9" stdDeviation="8" flood-color="#000000" flood-opacity=".38"/></filter>
+
+    <g id="ms-small-issue-ball">
+      <circle r="31" class="ms-orange-fill"/><circle r="31" class="ms-orange-stroke" stroke-width="3"/>
+      <path d="M-30-3C-10 4 10 4 30-3M-13-28C-4-10-4 10-13 28M13-28C4-10 4 10 13 28" class="ms-orange-stroke" stroke-width="2.5" stroke-linecap="round"/>
+      <circle r="13" fill="#087a51"/><circle r="7" fill="none" stroke="#eef8f1" stroke-width="3"/><circle r="2.5" class="ms-cream-fill"/><circle r="31" fill="url(#ms-ball-shine)"/>
+    </g>
+    <g id="ms-static-pr-ball">
+      <circle r="40" class="ms-green-fill"/><circle r="40" fill="url(#ms-ball-shine)"/><circle r="40" fill="none" stroke="#9af4c3" stroke-width="3"/>
+      <g class="ms-cream-stroke" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"><path d="M-15-11v23M15 12V2C15-8 7-12-3-12h-5"/></g>
+      <g class="ms-cream-fill"><circle cx="-15" cy="-17" r="5"/><circle cx="-15" cy="18" r="5"/><circle cx="15" cy="18" r="5"/></g>
+      <path d="M-3-18l-7 6l7 6" class="ms-cream-stroke" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <g id="ms-static-merge-ball">
+      <circle r="50" class="ms-purple-fill"/><circle r="50" fill="url(#ms-ball-shine)"/><circle r="50" fill="none" stroke="#cebdf6" stroke-width="3"/>
+      <g class="ms-cream-stroke" stroke-width="5" stroke-linecap="round"><path d="M-17-13v6C-17 6-9 12 0 17M17-13v6C17 6 9 12 0 17"/></g>
+      <g class="ms-cream-fill"><circle cx="-17" cy="-19" r="5.5"/><circle cx="17" cy="-19" r="5.5"/><circle cy="22" r="5.5"/></g>
+    </g>
   </defs>
 
-  <rect class="field" width="1200" height="560" rx="28"/>
-  <path class="field-deep" d="M0 405C206 353 360 390 516 560H0z" opacity=".55"/>
-  <path d="M0 0h560C390 126 278 214 196 350C130 460 72 512 0 532z" fill="url(#field-glow)"/>
-
-  <g class="court-line" stroke-width="2" opacity=".25">
-    <path d="M0 458H1200"/>
-    <path d="M600 0V560"/>
-    <circle cx="600" cy="458" r="112"/>
-    <path d="M1080 458a202 202 0 0 0-156-196"/>
-    <path d="M56 86h176M968 86h176"/>
+  <rect width="1000" height="520" rx="28" fill="url(#ms-background)"/>
+  <rect width="1000" height="520" rx="28" fill="url(#ms-spot-left)"/>
+  <rect width="1000" height="520" rx="28" fill="url(#ms-spot-rim)"/>
+  <path d="M0 0h235L0 235z" fill="#2ddc8c" opacity=".08"/>
+  <path d="M765 0h235v235z" fill="url(#ms-dot-grid)" opacity=".7"/>
+  <path class="ms-floor" d="M0 419C218 397 424 407 610 435C770 463 887 451 1000 426V520H0z"/>
+  <g class="ms-court" stroke-width="2" opacity=".36">
+    <path d="M0 426C238 407 425 414 607 440C770 464 890 456 1000 430"/><path d="M530 520l95-83M739 520l-102-81M957 520L731 450"/><path d="M66 95h174M810 95h154"/>
   </g>
 
-  <g class="speed-line light-stroke" stroke-width="5" stroke-linecap="round" opacity="0">
-    <path d="M382 263h62"/>
-    <path d="M350 292h91"/>
-    <path d="M412 321h52"/>
+  <g opacity=".72">
+    <path d="M56 405L270 382M66 430l215-24" fill="none" stroke="#759689" stroke-width="8" stroke-linecap="round"/>
+    <path d="M78 383v58M257 367v57" fill="none" stroke="#4e6f63" stroke-width="10" stroke-linecap="round"/>
+    <path d="M74 405l18 20M145 397l18 20M218 389l18 20" fill="none" stroke="#39594d" stroke-width="5" stroke-linecap="round"/>
   </g>
+  <g class="ms-rack-ball" transform="translate(99 366) rotate(-12)" filter="url(#ms-shadow)"><use href="#ms-small-issue-ball"/></g>
+  <g class="ms-rack-ball" transform="translate(241 351) rotate(16)" filter="url(#ms-shadow)"><use href="#ms-small-issue-ball"/></g>
 
-  <path class="shot-trail light-stroke" d="M274 300C460 46 770 44 930 225" pathLength="1" stroke-width="4" stroke-linecap="round" opacity="0"/>
-
-  <g class="shooter light-stroke" stroke-width="13" stroke-linecap="round" stroke-linejoin="round" opacity=".94">
-    <circle cx="155" cy="272" r="25" stroke-width="10"/>
-    <path d="M158 304l9 77"/>
-    <path d="M165 379l-42 72"/>
-    <path d="M166 379l58 68"/>
-    <path d="M160 320l-42 52"/>
-    <g class="shooting-arm">
-      <path d="M165 318l48-20l35-4"/>
-      <path d="M168 333l46 14l41-38"/>
+  <ellipse cx="342" cy="442" rx="82" ry="12" fill="#000000" opacity=".28"/>
+  <g transform="translate(342 430)">
+    <g class="ms-player-motion">
+      <path d="M-13-64L-58 5" class="ms-cream-stroke" stroke-width="24" stroke-linecap="round"/><path d="M12-63L64 3" class="ms-cream-stroke" stroke-width="24" stroke-linecap="round"/>
+      <path d="M-71 7h32M54 6h32" class="ms-green-stroke" stroke-width="11" stroke-linecap="round"/>
+      <path d="M-34-139Q0-157 34-139L27-64Q0-49-27-64z" fill="url(#ms-jersey)"/><path d="M-22-69Q0-57 22-69" fill="none" stroke="#8df0bb" stroke-width="4" opacity=".65"/>
+      <circle cy="-178" r="29" class="ms-cream-fill"/><path d="M-16-191q18-13 35 2" fill="none" stroke="#173a2c" stroke-width="7" stroke-linecap="round" opacity=".8"/>
+      <g class="ms-pose-idle ms-cream-stroke" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"><path d="M-27-127l-35 49l-5 35"/><path d="M27-127l35 49l5 35"/></g>
+      <g class="ms-pose-pick ms-cream-stroke" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"><path d="M-28-126l-72 31l-67 27"/><path d="M26-126L-31-91l-113 25"/></g>
+      <g class="ms-pose-carry ms-cream-stroke" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"><path d="M-28-126l-42 20l-12-20"/><path d="M26-126l-41 25l-43-24"/></g>
+      <g class="ms-pose-set ms-cream-stroke" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"><path d="M-27-126l-30-54l63-55"/><path d="M27-126l29-54l-43-55"/></g>
+      <g class="ms-pose-shot ms-cream-stroke" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"><path d="M-25-127l60-52l67-63l18-17"/><path d="M25-127l51-37l48-70"/><path d="M120-259l15 12M126-234l15 2" stroke-width="8"/></g>
     </g>
   </g>
 
-  <g filter="url(#soft-shadow)">
-    <path class="light-stroke" d="M1030 125v333" stroke-width="14" stroke-linecap="round"/>
-    <path class="light-stroke" d="M984 123h94v132h-94z" stroke-width="8" stroke-linejoin="round"/>
-    <path class="light-stroke" d="M1007 254h-71" stroke-width="8" stroke-linecap="round"/>
-    <g class="rim">
-      <ellipse cx="937" cy="254" rx="38" ry="8" fill="none" stroke="#f3f6ea" stroke-width="8"/>
-    </g>
-    <g class="net light-stroke" stroke-width="3" opacity=".82">
-      <path d="M904 258l13 69h40l13-69"/>
-      <path d="M911 279h52M914 301h46M919 324h37"/>
-      <path d="M917 261l10 66M932 262l4 65M948 261l-3 66M960 260l-12 67"/>
-    </g>
+  <path class="ms-shot-trail ms-green-stroke" d="M440 160C545 42 700 37 800 237" pathLength="1" stroke-width="5" stroke-linecap="round" opacity="0" filter="url(#ms-glow)"/>
+
+  <g transform="translate(-150 0)">
+    <path d="M1063 104v334" class="ms-cream-stroke" stroke-width="14" stroke-linecap="round" opacity=".92"/>
+    <path d="M992 93h111v142H992z" fill="url(#ms-glass)" stroke="#eef8f1" stroke-width="8"/>
+    <rect x="1011" y="112" width="73" height="104" rx="3" fill="none" stroke="#5e8c78" stroke-width="3" opacity=".6"/>
+    <path d="M1005 236h-54" class="ms-cream-stroke" stroke-width="7" stroke-linecap="round"/>
+    <ellipse cx="950" cy="236" rx="43" ry="9" fill="none" stroke="#8beab6" stroke-width="5" opacity=".52"/>
+    <g class="ms-back-net ms-green-stroke" stroke-width="3" opacity=".35"><path d="M910 239l17 78h46l17-78"/><path d="M918 263h64M922 289h55M927 314h45"/><path d="M923 241l13 75M940 242l7 75M959 242l-4 75M976 241l-13 75"/></g>
   </g>
 
-  <g class="ball-flight" filter="url(#soft-shadow)">
-    <g class="ball-spin">
-      <circle class="ball-fill" r="31"/>
-      <circle class="ball-line" r="31" stroke-width="4"/>
-      <path class="ball-line" d="M-30-4C-10 3 10 3 30-4M-13-28C-4-11-4 11-13 28M13-28C4-11 4 11 13 28" stroke-width="3" stroke-linecap="round"/>
-      <circle class="issue-fill" r="11" opacity=".9"/>
-      <circle cx="0" cy="0" r="6" fill="none" stroke="#f3f6ea" stroke-width="2.5"/>
-      <circle cx="0" cy="0" r="2.3" fill="#f3f6ea"/>
-    </g>
-  </g>
-
-  <g class="pr-flight" opacity="0" filter="url(#soft-shadow)">
-    <circle class="pr-card" r="39"/>
-    <g class="pr-line" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
-      <circle cx="-15" cy="-19" r="5" fill="#075f42" stroke="none"/>
-      <circle cx="-15" cy="19" r="5" fill="#075f42" stroke="none"/>
-      <circle cx="16" cy="19" r="5" fill="#075f42" stroke="none"/>
-      <path d="M-15-13v26M16 13V3C16-7 9-11-2-11h-4"/>
-      <path d="M-9-17l-7 6l-7-6"/>
-    </g>
-    <circle class="pr-signal ball-fill" cx="16" cy="-7" r="4" opacity="0"/>
-  </g>
-
-  <g transform="translate(1060 366)">
-    <circle class="merge-halo" r="49" fill="none" stroke="#bca5f2" stroke-width="5" opacity="0"/>
-
-    <g class="merge-pop" opacity="0" filter="url(#soft-shadow)">
-      <circle class="merge-fill" r="48"/>
-      <g class="merge-line" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="-16" cy="-19" r="5" fill="#ffffff" stroke="none"/>
-        <circle cx="16" cy="-19" r="5" fill="#ffffff" stroke="none"/>
-        <circle cx="0" cy="20" r="5" fill="#ffffff" stroke="none"/>
-        <path d="M-16-13v5C-16 4-9 10 0 15M16-13v5C16 4 9 10 0 15"/>
+  <g class="ms-animated-token">
+    <g class="ms-token-position">
+      <g class="ms-token-squash" filter="url(#ms-shadow)">
+        <circle class="ms-merge-halo" r="51" fill="none" stroke="#bca4f2" stroke-width="5"/>
+        <circle class="ms-token-shell" r="40"/>
+        <g clip-path="url(#ms-token-clip)"><rect class="ms-merge-wipe ms-purple-fill" x="-42" y="-42" width="84" height="84"/></g>
+        <circle r="40" fill="url(#ms-ball-shine)"/><circle class="ms-token-outline" r="40" fill="none" stroke-width="3" opacity=".8"/>
+        <g class="ms-ball-seams ms-orange-stroke" stroke-width="3.5" stroke-linecap="round"><path d="M-39-4C-14 5 14 5 39-4M-16-36C-5-14-5 14-16 36M16-36C5-14 5 14 16 36"/></g>
+        <g class="ms-issue-state"><circle r="16" fill="#087a51"/><circle r="9" fill="none" stroke="#eef8f1" stroke-width="4"/><circle r="3.5" class="ms-cream-fill"/></g>
+        <g class="ms-pr-state">
+          <g class="ms-cream-stroke" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path class="ms-pr-path" pathLength="1" d="M-16-12v25M16 13V2C16-9 8-13-3-13h-5"/><path class="ms-pr-path" pathLength="1" d="M-3-20l-8 7l8 7"/></g>
+          <g class="ms-cream-fill"><circle class="ms-pr-node" cx="-16" cy="-19" r="5.5"/><circle class="ms-pr-node" cx="-16" cy="20" r="5.5"/><circle class="ms-pr-node" cx="16" cy="20" r="5.5"/></g>
+        </g>
+        <g class="ms-merge-state">
+          <g class="ms-cream-stroke" stroke-width="5.5" stroke-linecap="round"><path d="M-18-13v6C-18 7-9 13 0 18M18-13v6C18 7 9 13 0 18"/></g>
+          <g class="ms-cream-fill"><circle cx="-18" cy="-20" r="6"/><circle cx="18" cy="-20" r="6"/><circle cy="24" r="6"/></g>
+        </g>
+        <circle class="ms-select-orbit" r="49" fill="none" stroke="#73f2ad" stroke-width="3" stroke-dasharray="7 8"/>
       </g>
     </g>
-
-    <g fill="#c9f7dd">
-      <circle class="particle-a" cx="-41" cy="-34" r="4" opacity="0"/>
-      <circle class="particle-b" cx="39" cy="-29" r="5" opacity="0"/>
-      <circle class="particle-c" cx="-38" cy="35" r="3.5" opacity="0"/>
-      <circle class="particle-d" cx="42" cy="34" r="4" opacity="0"/>
-    </g>
   </g>
 
-  <ellipse cx="1060" cy="463" rx="55" ry="9" fill="#032f22" opacity=".2"/>
+  <g class="ms-reduced-story">
+    <path d="M170 365C360 95 620 38 800 237" fill="none" stroke="#2ddc8c" stroke-width="4" stroke-dasharray="9 13" opacity=".45"/>
+    <g transform="translate(170 365) scale(1.12)"><use href="#ms-small-issue-ball"/></g>
+    <g transform="translate(615 76)"><use href="#ms-static-pr-ball"/></g>
+    <g transform="translate(800 365)"><use href="#ms-static-merge-ball"/></g>
+  </g>
+
+  <g transform="translate(-150 0)">
+    <g class="ms-rim-front">
+      <path d="M908 236c17 8 67 8 84 0" fill="none" stroke="#eef8f1" stroke-width="8" stroke-linecap="round"/>
+      <path class="ms-rim-glow" d="M908 236c17 8 67 8 84 0" fill="none" stroke="#76f2ae" stroke-width="16" stroke-linecap="round" filter="url(#ms-glow)"/>
+    </g>
+    <g class="ms-front-net ms-cream-stroke" stroke-width="3" opacity=".76"><path d="M910 240l17 78h46l17-78"/><path d="M918 264h64M922 290h55M927 315h45"/><path d="M923 242l13 75M940 243l7 75M959 243l-4 75M976 242l-13 75"/></g>
+  </g>
+
+  <path d="M0 459C246 438 446 465 631 486C790 504 902 482 1000 462V520H0z" fill="#030b08"/>
+  <path d="M0 459C246 438 446 465 631 486C790 504 902 482 1000 462" fill="none" stroke="#164d38" stroke-width="3" opacity=".8"/>
 </svg>
