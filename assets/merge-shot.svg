@@ -1,0 +1,322 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560" role="img" aria-labelledby="title description">
+  <title id="title">From issue to merged pull request</title>
+  <desc id="description">A wordless basketball animation where an issue-ball is shot through a hoop, becomes a pull request, and lands as a merged pull request.</desc>
+
+  <style>
+    .field { fill: #087a51; }
+    .field-deep { fill: #075f42; }
+    .court-line { fill: none; stroke: #c9f7dd; }
+    .light-fill { fill: #f3f6ea; }
+    .light-stroke { fill: none; stroke: #f3f6ea; }
+    .ball-fill { fill: #42dc8b; }
+    .ball-line { fill: none; stroke: #064c37; }
+    .issue-fill { fill: #064c37; }
+    .pr-card { fill: #c9f7dd; }
+    .pr-line { fill: none; stroke: #075f42; }
+    .merge-fill { fill: #8250df; }
+    .merge-line { fill: none; stroke: #ffffff; }
+
+    .shooter {
+      transform-box: fill-box;
+      transform-origin: 50% 100%;
+      animation: shooter 6.4s ease-in-out infinite;
+    }
+
+    .shooting-arm {
+      transform-box: fill-box;
+      transform-origin: 0% 75%;
+      animation: release 6.4s ease-in-out infinite;
+    }
+
+    .shot-trail {
+      stroke-dasharray: 0 1;
+      animation: trail 6.4s linear infinite;
+    }
+
+    .ball-flight {
+      transform: translate(274px, 300px);
+      animation: ball-flight 6.4s linear infinite;
+    }
+
+    .ball-spin {
+      transform-origin: 0 0;
+      animation: ball-spin 6.4s linear infinite;
+    }
+
+    .speed-line {
+      animation: speed-line 6.4s linear infinite;
+    }
+
+    .rim {
+      transform-box: fill-box;
+      transform-origin: 100% 50%;
+      animation: rim-hit 6.4s ease-in-out infinite;
+    }
+
+    .net {
+      transform-box: fill-box;
+      transform-origin: 50% 0%;
+      animation: net-swish 6.4s ease-in-out infinite;
+    }
+
+    .pr-flight {
+      animation: pr-flight 6.4s ease-in-out infinite;
+    }
+
+    .pr-signal {
+      animation: pr-signal 6.4s ease-in-out infinite;
+    }
+
+    .merge-pop {
+      transform-origin: 0 0;
+      animation: merge-pop 6.4s ease-in-out infinite;
+    }
+
+    .merge-halo {
+      transform-origin: 0 0;
+      animation: merge-halo 6.4s ease-out infinite;
+    }
+
+    .particle-a { animation: particle-a 6.4s ease-out infinite; }
+    .particle-b { animation: particle-b 6.4s ease-out infinite; }
+    .particle-c { animation: particle-c 6.4s ease-out infinite; }
+    .particle-d { animation: particle-d 6.4s ease-out infinite; }
+
+    @keyframes shooter {
+      0%, 8%, 24%, 100% { transform: translateY(0) rotate(0deg); }
+      11% { transform: translateY(4px) rotate(1deg); }
+      16% { transform: translateY(-13px) rotate(-2deg); }
+      20% { transform: translateY(-5px) rotate(-1deg); }
+    }
+
+    @keyframes release {
+      0%, 9%, 100% { transform: rotate(0deg); }
+      16%, 24% { transform: rotate(-12deg); }
+      30% { transform: rotate(0deg); }
+    }
+
+    @keyframes trail {
+      0%, 10% { opacity: 0; stroke-dasharray: 0 1; }
+      15% { opacity: .55; stroke-dasharray: .08 1; }
+      52% { opacity: .7; stroke-dasharray: .98 1; }
+      59%, 100% { opacity: 0; stroke-dasharray: 1 1; }
+    }
+
+    @keyframes ball-flight {
+      0%, 9% { opacity: 1; transform: translate(274px, 300px) scale(1); }
+      11% { opacity: 1; transform: translate(276px, 303px) scale(1.13, .87); }
+      15% { opacity: 1; transform: translate(330px, 224px) scale(1); }
+      25% { opacity: 1; transform: translate(470px, 116px) scale(1); }
+      35% { opacity: 1; transform: translate(640px, 78px) scale(1); }
+      44% { opacity: 1; transform: translate(790px, 116px) scale(1); }
+      52% { opacity: 1; transform: translate(930px, 225px) scale(1); }
+      56% { opacity: 1; transform: translate(956px, 283px) scale(.88, 1.12); }
+      58%, 96% { opacity: 0; transform: translate(956px, 300px) scale(.8, 1.2); }
+      97% { opacity: 0; transform: translate(274px, 300px) scale(.8); }
+      100% { opacity: 1; transform: translate(274px, 300px) scale(1); }
+    }
+
+    @keyframes ball-spin {
+      0%, 9% { transform: rotate(0deg); }
+      56%, 100% { transform: rotate(1080deg); }
+    }
+
+    @keyframes speed-line {
+      0%, 15%, 100% { opacity: 0; transform: translateX(0); }
+      22% { opacity: .75; transform: translateX(0); }
+      48% { opacity: .2; transform: translateX(70px); }
+      55% { opacity: 0; transform: translateX(100px); }
+    }
+
+    @keyframes rim-hit {
+      0%, 50%, 61%, 100% { transform: rotate(0deg); }
+      54% { transform: rotate(3deg); }
+      57% { transform: rotate(-2deg); }
+    }
+
+    @keyframes net-swish {
+      0%, 50%, 64%, 100% { transform: scaleY(1) skewX(0deg); }
+      55% { transform: scaleY(1.22) skewX(-4deg); }
+      59% { transform: scaleY(.94) skewX(2deg); }
+    }
+
+    @keyframes pr-flight {
+      0%, 52% { opacity: 0; transform: translate(950px, 246px) scale(.35) rotate(-12deg); }
+      56% { opacity: 1; transform: translate(955px, 282px) scale(.82) rotate(-6deg); }
+      64% { opacity: 1; transform: translate(1054px, 362px) scale(1) rotate(0deg); }
+      69% { opacity: 1; transform: translate(1060px, 366px) scale(1) rotate(0deg); }
+      72%, 100% { opacity: 0; transform: translate(1060px, 366px) scale(.72) rotate(0deg); }
+    }
+
+    @keyframes pr-signal {
+      0%, 55%, 100% { opacity: 0; transform: translateY(-12px); }
+      60% { opacity: 1; transform: translateY(-5px); }
+      67% { opacity: 1; transform: translateY(11px); }
+      70% { opacity: 0; transform: translateY(14px); }
+    }
+
+    @keyframes merge-pop {
+      0%, 67% { opacity: 0; transform: scale(.45) rotate(-14deg); }
+      71% { opacity: 1; transform: scale(1.16) rotate(3deg); }
+      75% { opacity: 1; transform: scale(1) rotate(0deg); }
+      91% { opacity: 1; transform: scale(1) rotate(0deg); }
+      97%, 100% { opacity: 0; transform: scale(.72) rotate(8deg); }
+    }
+
+    @keyframes merge-halo {
+      0%, 70% { opacity: 0; transform: scale(.55); }
+      73% { opacity: .8; transform: scale(.85); }
+      84%, 100% { opacity: 0; transform: scale(1.75); }
+    }
+
+    @keyframes particle-a {
+      0%, 70% { opacity: 0; transform: translate(0, 0); }
+      74% { opacity: 1; }
+      84%, 100% { opacity: 0; transform: translate(-34px, -34px); }
+    }
+
+    @keyframes particle-b {
+      0%, 71% { opacity: 0; transform: translate(0, 0); }
+      75% { opacity: 1; }
+      85%, 100% { opacity: 0; transform: translate(38px, -24px); }
+    }
+
+    @keyframes particle-c {
+      0%, 70% { opacity: 0; transform: translate(0, 0); }
+      74% { opacity: 1; }
+      84%, 100% { opacity: 0; transform: translate(-31px, 30px); }
+    }
+
+    @keyframes particle-d {
+      0%, 72% { opacity: 0; transform: translate(0, 0); }
+      76% { opacity: 1; }
+      86%, 100% { opacity: 0; transform: translate(35px, 33px); }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .field { fill: #052f24; }
+      .field-deep { fill: #04251c; }
+      .court-line { stroke: #7ee2aa; }
+      .ball-fill { fill: #39d98a; }
+      .pr-card { fill: #9aebbd; }
+      .merge-fill { fill: #a371f7; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .shooter, .shooting-arm, .shot-trail, .ball-flight, .ball-spin,
+      .speed-line, .rim, .net, .pr-flight, .pr-signal, .merge-pop,
+      .merge-halo, .particle-a, .particle-b, .particle-c, .particle-d {
+        animation: none !important;
+      }
+
+      .ball-flight, .shot-trail, .speed-line, .pr-flight,
+      .merge-halo, .particle-a, .particle-b, .particle-c, .particle-d {
+        opacity: 0;
+      }
+
+      .merge-pop { opacity: 1; transform: scale(1); }
+    }
+  </style>
+
+  <defs>
+    <filter id="soft-shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#032f22" flood-opacity=".28"/>
+    </filter>
+    <linearGradient id="field-glow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#20a872" stop-opacity=".4"/>
+      <stop offset="1" stop-color="#064c37" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect class="field" width="1200" height="560" rx="28"/>
+  <path class="field-deep" d="M0 405C206 353 360 390 516 560H0z" opacity=".55"/>
+  <path d="M0 0h560C390 126 278 214 196 350C130 460 72 512 0 532z" fill="url(#field-glow)"/>
+
+  <g class="court-line" stroke-width="2" opacity=".25">
+    <path d="M0 458H1200"/>
+    <path d="M600 0V560"/>
+    <circle cx="600" cy="458" r="112"/>
+    <path d="M1080 458a202 202 0 0 0-156-196"/>
+    <path d="M56 86h176M968 86h176"/>
+  </g>
+
+  <g class="speed-line light-stroke" stroke-width="5" stroke-linecap="round" opacity="0">
+    <path d="M382 263h62"/>
+    <path d="M350 292h91"/>
+    <path d="M412 321h52"/>
+  </g>
+
+  <path class="shot-trail light-stroke" d="M274 300C460 46 770 44 930 225" pathLength="1" stroke-width="4" stroke-linecap="round" opacity="0"/>
+
+  <g class="shooter light-stroke" stroke-width="13" stroke-linecap="round" stroke-linejoin="round" opacity=".94">
+    <circle cx="155" cy="272" r="25" stroke-width="10"/>
+    <path d="M158 304l9 77"/>
+    <path d="M165 379l-42 72"/>
+    <path d="M166 379l58 68"/>
+    <path d="M160 320l-42 52"/>
+    <g class="shooting-arm">
+      <path d="M165 318l48-20l35-4"/>
+      <path d="M168 333l46 14l41-38"/>
+    </g>
+  </g>
+
+  <g filter="url(#soft-shadow)">
+    <path class="light-stroke" d="M1030 125v333" stroke-width="14" stroke-linecap="round"/>
+    <path class="light-stroke" d="M984 123h94v132h-94z" stroke-width="8" stroke-linejoin="round"/>
+    <path class="light-stroke" d="M1007 254h-71" stroke-width="8" stroke-linecap="round"/>
+    <g class="rim">
+      <ellipse cx="937" cy="254" rx="38" ry="8" fill="none" stroke="#f3f6ea" stroke-width="8"/>
+    </g>
+    <g class="net light-stroke" stroke-width="3" opacity=".82">
+      <path d="M904 258l13 69h40l13-69"/>
+      <path d="M911 279h52M914 301h46M919 324h37"/>
+      <path d="M917 261l10 66M932 262l4 65M948 261l-3 66M960 260l-12 67"/>
+    </g>
+  </g>
+
+  <g class="ball-flight" filter="url(#soft-shadow)">
+    <g class="ball-spin">
+      <circle class="ball-fill" r="31"/>
+      <circle class="ball-line" r="31" stroke-width="4"/>
+      <path class="ball-line" d="M-30-4C-10 3 10 3 30-4M-13-28C-4-11-4 11-13 28M13-28C4-11 4 11 13 28" stroke-width="3" stroke-linecap="round"/>
+      <circle class="issue-fill" r="11" opacity=".9"/>
+      <circle cx="0" cy="0" r="6" fill="none" stroke="#f3f6ea" stroke-width="2.5"/>
+      <circle cx="0" cy="0" r="2.3" fill="#f3f6ea"/>
+    </g>
+  </g>
+
+  <g class="pr-flight" opacity="0" filter="url(#soft-shadow)">
+    <circle class="pr-card" r="39"/>
+    <g class="pr-line" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="-15" cy="-19" r="5" fill="#075f42" stroke="none"/>
+      <circle cx="-15" cy="19" r="5" fill="#075f42" stroke="none"/>
+      <circle cx="16" cy="19" r="5" fill="#075f42" stroke="none"/>
+      <path d="M-15-13v26M16 13V3C16-7 9-11-2-11h-4"/>
+      <path d="M-9-17l-7 6l-7-6"/>
+    </g>
+    <circle class="pr-signal ball-fill" cx="16" cy="-7" r="4" opacity="0"/>
+  </g>
+
+  <g transform="translate(1060 366)">
+    <circle class="merge-halo" r="49" fill="none" stroke="#bca5f2" stroke-width="5" opacity="0"/>
+
+    <g class="merge-pop" opacity="0" filter="url(#soft-shadow)">
+      <circle class="merge-fill" r="48"/>
+      <g class="merge-line" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="-16" cy="-19" r="5" fill="#ffffff" stroke="none"/>
+        <circle cx="16" cy="-19" r="5" fill="#ffffff" stroke="none"/>
+        <circle cx="0" cy="20" r="5" fill="#ffffff" stroke="none"/>
+        <path d="M-16-13v5C-16 4-9 10 0 15M16-13v5C16 4 9 10 0 15"/>
+      </g>
+    </g>
+
+    <g fill="#c9f7dd">
+      <circle class="particle-a" cx="-41" cy="-34" r="4" opacity="0"/>
+      <circle class="particle-b" cx="39" cy="-29" r="5" opacity="0"/>
+      <circle class="particle-c" cx="-38" cy="35" r="3.5" opacity="0"/>
+      <circle class="particle-d" cx="42" cy="34" r="4" opacity="0"/>
+    </g>
+  </g>
+
+  <ellipse cx="1060" cy="463" rx="55" ry="9" fill="#032f22" opacity=".2"/>
+</svg>
