@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="440" viewBox="0 0 1200 440" role="img" aria-labelledby="title description">
-  <title id="title">Fayez Tamayaz — Issue Zero</title>
-  <desc id="description">An editorial cover introducing Fayez Tamayaz as an open, evolving body of work.</desc>
+  <title id="title">Fayez Tamayaz — Organization Profile</title>
+  <desc id="description">An editorial cover for the Fayez Tamayaz organization, open and building in public.</desc>
 
   <style>
     text {
@@ -12,8 +12,8 @@
     .paper-type { fill: #f2eee5; }
     .paper-line { stroke: #f2eee5; }
     .grid-line { stroke: #d8d2c7; }
-    .accent-fill { fill: #ff4f2e; }
-    .accent-line { stroke: #ff4f2e; }
+    .accent-fill { fill: #087a51; }
+    .accent-line { stroke: #087a51; }
 
     .label {
       font-size: 15px;
@@ -63,8 +63,8 @@
       .paper-type { fill: #101216; }
       .paper-line { stroke: #101216; }
       .grid-line { stroke: #2c3037; }
-      .accent-fill { fill: #ff684c; }
-      .accent-line { stroke: #ff684c; }
+      .accent-fill { fill: #39d98a; }
+      .accent-line { stroke: #39d98a; }
       .meta { fill: #aaa49a; }
       .number { stroke: #2c3037; }
     }
@@ -79,27 +79,27 @@
 
   <path class="accent-fill" d="M0 0h258L0 258z" opacity=".96"/>
   <path class="paper-line" d="M26 26h112" stroke-width="2"/>
-  <text x="26" y="58" class="label paper-type">FT / 000</text>
+  <text x="26" y="58" class="label paper-type">FT / ORG</text>
 
   <text x="748" y="326" class="number">000</text>
 
   <g transform="translate(72 133)">
-    <text x="220" class="label">A PERSONAL REPOSITORY</text>
+    <text x="220" class="label">AN OPEN ORGANIZATION</text>
     <text y="90" class="name">FAYEZ</text>
     <text y="164" class="name">TAMAYAZ</text>
     <path class="accent-line" d="M2 192h486" stroke-width="8"/>
-    <text y="231" class="meta">WORK IN PUBLIC / QUESTION IN PROGRESS</text>
+    <text y="231" class="meta">BUILD IN PUBLIC / SHARE WHAT WORKS</text>
   </g>
 
   <g transform="translate(987 46)">
     <circle class="accent-line" cx="52" cy="26" r="25" fill="none" stroke-width="2"/>
     <circle class="pulse accent-fill" cx="52" cy="26" r="8"/>
-    <text x="91" y="31" class="label">OPEN</text>
+    <text x="91" y="31" class="label">ACTIVE</text>
   </g>
 
   <g transform="translate(718 374)">
-    <text class="meta">FILED</text>
-    <text x="95" class="label">BEFORE THE NEXT THING</text>
+    <text class="meta">STATUS</text>
+    <text x="95" class="label">BUILDING TOGETHER</text>
   </g>
 
   <path class="accent-line" d="M1170 412h-28v-28" fill="none" stroke-width="3"/>

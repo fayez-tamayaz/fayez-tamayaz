@@ -1,21 +1,21 @@
 <p align="center">
-  <img src="./assets/issue-zero.svg" width="100%" alt="Fayez Tamayaz — Issue Zero: a personal repository, open and in progress" />
+  <img src="./assets/issue-zero.svg" width="100%" alt="Fayez Tamayaz — an open organization building in public" />
 </p>
 
 <br />
 
 ```text
-ISSUE       000
-SUBJECT     FAYEZ TAMAYAZ
-STATE       OPEN
-QUESTION    WHAT IS WORTH MAKING NEXT?
+PROFILE     ORGANIZATION
+NAME        FAYEZ TAMAYAZ
+STATE       ACTIVE
+MODE        BUILD / SHARE / GROW
 ```
 
 ## Premise
 
-A profile should leave evidence, not make claims.
+An organization should leave evidence, not make claims.
 
-This one begins deliberately unfinished. The work gets the final word; this page simply keeps the door open.
+Fayez Tamayaz is a place for ideas to become useful, open work. We build in public, keep the thinking visible, and let each repository explain why it exists.
 
 ## Working method
 
@@ -31,20 +31,20 @@ This one begins deliberately unfinished. The work gets the final word; this page
 - Does it make the idea clearer?
 - Is the complexity earning its place?
 - Can another person pick it up and continue?
-- Is it worth signing my name to?
+- Is it worth putting our name on?
 
 ## Evidence
 
-The repositories are the record: experiments, useful fragments, finished things, and the distance between them.
+Our repositories are the record: experiments, useful fragments, finished things, and the distance between them.
 
-**[Open the repository index →](https://github.com/fayeztamayaz?tab=repositories)**
+**[Open the repository index →](https://github.com/fayez-tamayaz?tab=repositories)**
 
 ## Open thread
 
-If something here intersects with something you are making, that is enough of a reason to start a conversation.
+If our work intersects with yours, start a conversation. Good ideas get stronger when more than one person can shape them.
 
 <br />
 
 <p align="right">
-  <sub>ISSUE 000 REMAINS OPEN · THE NEXT COMMIT CONTINUES IT</sub>
+  <sub>FAYEZ TAMAYAZ · THE NEXT COMMIT MOVES US FORWARD</sub>
 </p>
