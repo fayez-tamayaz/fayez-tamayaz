@@ -12,6 +12,6 @@
 
 | PLAYER | MIN | ISSUES PICKED | SHOTS (PRs) | MERGES | FG% |
 |:------:|:---:|:-------------:|:-----------:|:------:|:---:|
-| tamayaz | ∞ | every&nbsp;one | all&nbsp;of&nbsp;them | all&nbsp;of&nbsp;them | 100 |
+| fayez&nbsp;tamayaz | ∞ | every&nbsp;one | all&nbsp;of&nbsp;them | all&nbsp;of&nbsp;them | 100 |
 
 </div>
